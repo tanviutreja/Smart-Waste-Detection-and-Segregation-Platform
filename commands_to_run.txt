@@ -1,0 +1,15 @@
+for backend
+venv310\Scripts\activate
+cd backend
+python -m uvicorn app:app --reload
+ctrl+c
+deactivate
+
+for frontend
+cd frontend
+cd waste-frontend
+npm install(only for first time)
+npm start
+go to http://localhost:3000
+ctrl+c
+
