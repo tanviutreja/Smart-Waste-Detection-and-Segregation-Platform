@@ -1,114 +1,141 @@
-/* ------------------------------
-   CAMERA CLASSIFIER UI
-   ------------------------------ */
+/* ===============================
+   CAMERA CLASSIFIER - DARK MATERIAL THEME
+   =============================== */
 
+/* Camera Container */
 .camera-container {
-  margin-top: 20px;
+  margin-top: var(--spacing-md);
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: var(--spacing-md);
 }
 
+/* Video Feed */
 .video-feed {
-  width: 85%;
-  max-width: 450px;
-  border-radius: 14px;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
-  border: 3px solid #4caf50;
+  width: 100%;
+  max-width: 500px;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  border: 2px solid var(--border-subtle);
+  background: var(--bg-secondary);
+  transition: border-color var(--transition-normal);
 }
 
+.video-feed:hover {
+  border-color: var(--border-accent);
+}
+
+/* Camera Controls */
 .camera-btns {
-  margin-top: 18px;
   display: flex;
-  gap: 15px;
-}
-
-.btn {
-  background: #4caf50;
-  color: white;
-  padding: 12px 22px;
-  border: none;
-  cursor: pointer;
-  border-radius: 8px;
-  font-size: 16px;
-  font-weight: 600;
-  transition: 0.3s;
-}
-
-.btn:hover {
-  background: #45a049;
-  transform: scale(1.05);
-}
-
-.stop-btn {
-  background: #d9534f !important;
-}
-
-.stop-btn:hover {
-  background: #c9302c !important;
-  transform: scale(1.05);
-}
-
-/* toggle mode buttons */
-.mode-buttons {
-  margin-top: 15px;
-  display: flex;
-  gap: 15px;
+  gap: var(--spacing-sm);
+  flex-wrap: wrap;
   justify-content: center;
 }
 
-.mode-buttons .btn {
-  padding: 10px 20px;
-  background: #1976d2;
+/* Stop Button Override */
+.stop-btn {
+  background: transparent;
+  border: 1px solid var(--error);
+  color: var(--error);
 }
 
-.mode-buttons .btn:hover {
-  background: #125da6;
+.stop-btn:hover {
+  background: rgba(255, 82, 82, 0.1);
+  border-color: var(--error);
+  box-shadow: 0 0 20px rgba(255, 82, 82, 0.15);
 }
 
-/* ERROR MESSAGE */
-.error {
-  color: #d9534f;
-  margin-top: 15px;
-  font-size: 18px;
-  font-weight: bold;
+/* Capture Button */
+.capture-btn {
+  background: var(--accent-primary);
+  color: var(--bg-primary);
+  border-color: var(--accent-primary);
+  font-weight: 600;
 }
 
-/* RESULT CARD BEAUTIFICATION */
-.result-card {
-  width: 90%;
-  max-width: 500px;
-  background: #ffffff;
-  padding: 20px;
-  margin: 20px auto;
-  border-radius: 12px;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-  animation: fadeIn 0.6s ease-in-out;
+.capture-btn:hover {
+  background: #00c864;
+  border-color: #00c864;
 }
 
-.highlight {
-  color: #4caf50;
-  font-weight: bold;
+/* Camera Status Indicator */
+.camera-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-secondary);
+  font-size: 0.85rem;
 }
 
-/* Smooth fade animation */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(15px); }
-  to { opacity: 1; transform: translateY(0); }
+.camera-status::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  background: var(--accent-primary);
+  border-radius: 50%;
+  animation: pulse 2s ease-in-out infinite;
 }
 
-/* Mobile responsiveness */
-@media (max-width: 600px) {
-  .video-feed {
-    width: 95%;
+@keyframes pulse {
+
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
   }
 
-  .btn {
-    padding: 10px 18px;
-    font-size: 15px;
+  50% {
+    opacity: 0.5;
+    transform: scale(0.9);
+  }
+}
+
+/* Camera Preview Overlay */
+.camera-overlay {
+  position: relative;
+}
+
+.camera-overlay::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 2px solid transparent;
+  border-radius: var(--radius-lg);
+  pointer-events: none;
+  transition: border-color var(--transition-normal);
+}
+
+.camera-overlay.active::after {
+  border-color: var(--accent-primary);
+  box-shadow: var(--shadow-glow);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 600px) {
+  .video-feed {
+    width: 100%;
+    max-width: 100%;
   }
 
   .camera-btns {
     flex-direction: column;
+    width: 100%;
+  }
+
+  .camera-btns .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* Tablet Adjustments */
+@media (min-width: 601px) and (max-width: 900px) {
+  .video-feed {
+    max-width: 450px;
   }
 }

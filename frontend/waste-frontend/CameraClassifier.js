@@ -37,9 +37,12 @@ function CameraClassifier() {
     const formData = new FormData();
     formData.append("file", file);
 
+    // API endpoint - use environment variable if provided
+    const API_URL = process.env.REACT_APP_API_URL || "http://127.0.0.1:8000";
+
     // Send to backend
     try {
-      const res = await axios.post("http://127.0.0.1:8000/predict", formData, {
+      const res = await axios.post(`${API_URL}/predict`, formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
 
