@@ -3,3 +3,5 @@ __pycache__/
 *.pyc
 .venv/
 .venv
+start-dev.bat
+start.md
