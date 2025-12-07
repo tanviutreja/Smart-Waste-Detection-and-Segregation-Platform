@@ -189,7 +189,7 @@ Smart-Waste-Detection-and-Segregation-Platform/
 
 ## 🤝 Credits & Acknowledgements
 
-- **Dataset**: TrashNet
+- **Dataset**: Garbage Dataset
 - **Supervisor**: Dr. Amit Kumar
 - **Team**:
 Group No.: 4
