@@ -1,6 +1,6 @@
 # ♻️ Smart Waste Detection and Segregation Platform
 
-An AI-powered web application that automatically classifies waste into categories (plastic, paper, glass, metal, organic, etc.) using deep learning. This platform helps users identify waste types and provides proper disposal and recycling instructions to promote sustainable waste management.
+An AI-powered web application that automatically classifies waste into categories (plastic, paper, glass, organic, etc.) using deep learning. This platform helps users identify waste types and provides proper disposal and recycling instructions to promote sustainable waste management.
 
 ![Project Status](https://img.shields.io/badge/Status-Active-success)
 ![Python](https://img.shields.io/badge/Python-3.10-blue)
