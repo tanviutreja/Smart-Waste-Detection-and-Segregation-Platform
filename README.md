@@ -148,7 +148,7 @@ npm install
 set REACT_APP_API_URL=http://localhost:8000 && npm start
 ```
 
-For more detailed instructions, see [start.md](./start.md).
+For more detailed instructions, see commands_to_run.txt.
 
 ---
 
