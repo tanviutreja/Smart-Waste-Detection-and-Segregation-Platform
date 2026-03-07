@@ -98,11 +98,17 @@ graph TD
 
 ## ✨ Features
 
-- **📸 Image Upload**: Upload existing images from your device for classification.
-- **🎥 Live Camera Detection**: Real-time waste detection using your device's webcam.
-- **⚡ Fast Inference**: Powered by MobileNetV2 for quick and efficient predictions.
-- **♻️ Smart Guidance**: Displays carbon footprint, disposal methods, and recycling tips for each detected class.
-- **📱 Responsive Design**: Works on desktop and mobile devices.
+📸 Image Upload: Upload existing images from your device for classification.
+
+🎥 Live Camera Detection: Real-time waste detection using your device's webcam.
+
+⚡ Fast Inference: Powered by MobileNetV2 for quick and efficient predictions.
+
+♻️ Smart Guidance: Displays carbon footprint, disposal methods, and recycling tips for each detected class.
+
+🤖 AI Chatbot Assistant: Ask questions about waste disposal, recycling, and sustainability with an AI-powered assistant.
+
+📱 Responsive Design: Works smoothly on both desktop and mobile devices.
 
 ---
 
