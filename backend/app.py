@@ -1,31 +1,73 @@
 from fastapi import FastAPI, File, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
+from pydantic import BaseModel
 import uvicorn
 import tensorflow as tf
 import numpy as np
 from PIL import Image
 import os
+import requests
 
 app = FastAPI()
 
-# CORS for React
+# ---------------- CORS ----------------
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],          # allow all frontend URLs
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
-# --------- MODEL LOADING ---------
+class ChatRequest(BaseModel):
+    message: str
+
+
+# ---------------- LOCAL AI FUNCTION ----------------
+def ask_local_ai(message):
+
+    prompt = f"""
+You are an AI Waste Management Assistant.
+
+Help users with:
+- recycling
+- waste disposal
+- environmental impact
+- sustainability
+
+Give very short precise helpful answers.
+
+User question: {message}
+"""
+
+    try:
+        r = requests.post(
+            "http://localhost:11434/api/generate",
+            json={
+                "model": "llama3",
+                "prompt": prompt,
+                "stream": False
+            }
+        )
+
+        data = r.json()
+
+        # Safe extraction
+        return data.get("response", "AI could not generate a response.")
+
+    except Exception as e:
+        return f"Local AI error: {str(e)}"
+
+# ---------------- MODEL LOADING ----------------
 MODEL_PATH = os.path.join("model", "mobilenetv2_model.h5")
 
 try:
     model = tf.keras.models.load_model(MODEL_PATH)
-    print("✅ Model Loaded Successfully!")
+    print("✅ Waste Classification Model Loaded")
 except Exception as e:
-    print("❌ Error loading model:", e)
+    print("❌ Model loading failed:", e)
     model = None
+
 
 # Waste classes
 classes = [
@@ -33,16 +75,19 @@ classes = [
     "glass", "metal", "paper", "plastic", "shoes", "trash"
 ]
 
-# --------- DEFAULT ROUTE ---------
+
+# ---------------- DEFAULT ROUTE ----------------
 @app.get("/")
 def home():
-    return {"message": "FastAPI Waste Classification Backend Running!"}
+    return {"message": "Smart Waste Detection Backend Running"}
 
-# --------- PREDICTION ROUTE ---------
+
+# ---------------- PREDICTION ROUTE ----------------
 @app.post("/predict")
 async def predict(file: UploadFile = File(...)):
+
     if model is None:
-        return {"error": "Model not loaded on server."}
+        return {"error": "Model not loaded"}
 
     try:
         img = Image.open(file.file).convert("RGB")
@@ -60,8 +105,24 @@ async def predict(file: UploadFile = File(...)):
         }
 
     except Exception as e:
-        return {"error": f"Failed to process image: {e}"}
+        return {"error": f"Image processing failed: {str(e)}"}
 
-# --------- RUN SERVER ---------
+
+# ---------------- AI CHATBOT ROUTE ----------------
+@app.post("/chat")
+async def chat(request: ChatRequest):
+
+    try:
+
+        reply = ask_local_ai(request.message)
+
+        return {"reply": reply}
+
+    except Exception as e:
+
+        return {"reply": f"AI error: {str(e)}"}
+
+
+# ---------------- RUN SERVER ----------------
 if __name__ == "__main__":
     uvicorn.run(app, host="0.0.0.0", port=8000)
