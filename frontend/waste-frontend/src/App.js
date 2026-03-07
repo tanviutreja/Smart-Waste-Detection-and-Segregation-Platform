@@ -11,7 +11,9 @@ function App() {
   const [loading, setLoading] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
   const [cameraMode, setCameraMode] = useState(false);
-
+  const [chatOpen, setChatOpen] = useState(false);
+  const [chatInput, setChatInput] = useState("");
+const [messages, setMessages] = useState([]);
   const videoRef = useRef(null);
   const canvasRef = useRef(null);
 
@@ -164,6 +166,38 @@ function App() {
       setLoading(false);
     }, "image/jpeg");
   };
+const sendMessage = async () => {
+
+  if (!chatInput.trim()) return;
+
+  const messageText = chatInput;   // store current message
+  setChatInput("");                // clear input immediately
+
+  const userMessage = { sender: "user", text: messageText };
+  setMessages(prev => [...prev, userMessage]);
+
+  try {
+
+    const response = await axios.post(`${API_URL}/chat`, {
+      message: messageText
+    });
+
+    const botMessage = {
+      sender: "bot",
+      text: response.data.reply
+    };
+
+    setMessages(prev => [...prev, botMessage]);
+
+  } catch (error) {
+
+    setMessages(prev => [
+      ...prev,
+      { sender: "bot", text: "AI assistant unavailable." }
+    ]);
+
+  }
+};
 
   return (
     <div className="app-container">
@@ -283,7 +317,58 @@ function App() {
           </div>
         )}
       </div>
+      {/* ================= CHATBOT ================= */}
 
+{/* Chat Window */}
+{chatOpen && (
+  <div className="chat-window">
+    <div className="chat-header">
+      <span>🤖 Waste Assistant</span>
+      <button onClick={() => setChatOpen(false)}>✖</button>
+    </div>
+
+<div className="chat-body">
+
+  <p>👋 Hi! Ask me about waste disposal.</p>
+
+  {prediction && (
+    <p>
+      Latest detected item: <b>{prediction}</b>
+    </p>
+  )}
+
+  {messages.map((msg, index) => (
+    <div key={index} className={`chat-message ${msg.sender}`}>
+      {msg.text}
+    </div>
+  ))}
+
+</div>
+
+<div className="chat-input">
+
+  <input
+    type="text"
+    value={chatInput}
+    onChange={(e) => setChatInput(e.target.value)}
+    placeholder="Ask about recycling..."
+  />
+
+  <button onClick={sendMessage}>
+    Send
+  </button>
+
+</div>
+  </div>
+)}
+
+{/* Floating Chat Button */}
+<div
+  className="chatbot-button"
+  onClick={() => setChatOpen(!chatOpen)}
+>
+  💬
+</div>
       {/* Footer */}
       <footer className="footer">
         <div className="footer-content">
@@ -301,6 +386,7 @@ function App() {
           </p>
         </div>
       </footer>
+      
     </div>
   );
 }
