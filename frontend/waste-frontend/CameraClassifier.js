@@ -5,7 +5,7 @@ import axios from "axios";
 const videoConstraints = {
   width: 300,
   height: 300,
-  facingMode: "environment", // back camera on phone
+  facingMode: "environment", 
 };
 
 function CameraClassifier() {
