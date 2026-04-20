@@ -55,7 +55,7 @@ model.compile(
 
 history = model.fit(train_ds, validation_data=val_ds, epochs=10)
 
-# Fine-tuning for 98%+ accuracy
+# Fine-tuning for 94%+ accuracy
 base_model.trainable = True
 model.compile(
     optimizer=tf.keras.optimizers.Adam(1e-5),
