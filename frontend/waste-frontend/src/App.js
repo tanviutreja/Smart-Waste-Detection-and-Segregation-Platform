@@ -26,28 +26,68 @@ function App() {
   const videoRef = useRef(null);
   const canvasRef = useRef(null);
 
-  const wasteInfo = {
-    battery: {
-      carbon: "High – hazardous chemicals",
-      dispose: "Drop at e-waste center",
-      recycle: "Recyclable"
-    },
-    biological: {
-      carbon: "Moderate",
-      dispose: "Compost",
-      recycle: "Turns to manure"
-    },
-    cardboard: {
-      carbon: "Low",
-      dispose: "Dry bin",
-      recycle: "Reusable"
-    },
-    plastic: {
-      carbon: "Very high",
-      dispose: "Plastic center",
-      recycle: "Reusable fibers"
-    }
-  };
+const wasteInfo = {
+  battery: {
+    carbon: "Very High – toxic heavy metals and chemicals",
+    impact: "Can contaminate soil and groundwater if not disposed properly",
+    dispose: "Take to authorized e-waste collection centers",
+    recycle: "Recover metals like lithium and lead"
+  },
+  biological: {
+    carbon: "Low – natural decomposition",
+    impact: "Produces methane if landfilled but useful for composting",
+    dispose: "Use compost bin",
+    recycle: "Convert into organic manure"
+  },
+  cardboard: {
+    carbon: "Low",
+    impact: "Biodegradable but contributes to landfill if wasted",
+    dispose: "Place in dry waste bin",
+    recycle: "Reuse or recycle into packaging"
+  },
+  clothes: {
+    carbon: "High – textile industry emissions",
+    impact: "Fast fashion increases landfill waste",
+    dispose: "Donate or give to textile recyclers",
+    recycle: "Upcycle into bags, rags"
+  },
+  glass: {
+    carbon: "Medium",
+    impact: "Non-biodegradable but reusable",
+    dispose: "Dry waste bin",
+    recycle: "100% recyclable infinitely"
+  },
+  metal: {
+    carbon: "Medium to High",
+    impact: "Mining causes environmental damage",
+    dispose: "Scrap dealer or recycling center",
+    recycle: "Fully recyclable without quality loss"
+  },
+  paper: {
+    carbon: "Low",
+    impact: "Deforestation if not recycled",
+    dispose: "Dry waste bin",
+    recycle: "Reuse or recycle into paper products"
+  },
+  plastic: {
+    carbon: "Very High",
+    impact: "Takes 400–500 years to decompose, harms marine life",
+    dispose: "Plastic recycling center",
+    recycle: "Can be converted into fibers or reused"
+  },
+  shoes: {
+    carbon: "High",
+    impact: "Mixed materials make decomposition difficult",
+    dispose: "Donate if usable",
+    recycle: "Upcycle into mats or other items"
+  },
+  trash: {
+    carbon: "Variable",
+    impact: "Mixed waste leads to landfill overflow",
+    dispose: "General waste bin",
+    recycle: "Segregate before disposal if possible"
+  }
+};
 
   const API_URL = process.env.REACT_APP_API_URL || "http://127.0.0.1:8000";
 
@@ -242,12 +282,33 @@ function App() {
       )}
 
       {/* ---------- RESULT ---------- */}
-      {prediction && (
-        <div className="result-card">
-          <h2>{prediction}</h2>
-          <p>{(confidence * 100).toFixed(2)}%</p>
-        </div>
-      )}
+{prediction && wasteInfo[prediction] && (
+  <div className="result-card">
+
+    <h2>
+      Detected: <span className="highlight">{prediction}</span>
+    </h2>
+
+    <p>
+      <strong>Confidence:</strong> {(confidence * 100).toFixed(2)}%
+    </p>
+
+    <hr />
+
+    <h3>🌍 Carbon Footprint</h3>
+    <p>{wasteInfo[prediction].carbon}</p>
+
+    <h3>⚠️ Environmental Impact</h3>
+    <p>{wasteInfo[prediction].impact}</p>
+
+    <h3>🗑️ Disposal Method</h3>
+    <p>{wasteInfo[prediction].dispose}</p>
+
+    <h3>♻️ Recycling Info</h3>
+    <p>{wasteInfo[prediction].recycle}</p>
+
+  </div>
+)}
 
       {/* ---------- CHAT ---------- */}
       {chatOpen && (
@@ -266,11 +327,12 @@ function App() {
           </div>
 
           <div className="chat-input">
-            <input
-              value={chatInput}
-              onChange={(e) => setChatInput(e.target.value)}
-              placeholder="Ask about waste..."
-            />
+           <input
+  value={chatInput}
+  onChange={(e) => setChatInput(e.target.value)}
+  placeholder="Ask about waste..."
+  onKeyDown={(e) => e.key === "Enter" && sendMessage()}
+/>
             <button onClick={sendMessage}>Send</button>
           </div>
         </div>
@@ -297,13 +359,13 @@ The goal of this project is to make waste management smarter, more accessible, a
       {/* ---------- CONTACT ---------- */}
       <section id="contact" className="info-section">
         <h2>Contact</h2>
-        <p>Email: utreja.tanvi01@gmail.com</p>
-        <p>https://github.com/tanviutreja</p>
+        <p>Email:utreja.tanvi01@gmail.com</p>
+        <p>Github:https://github.com/tanviutreja</p>
       </section>
 
       {/* ---------- FOOTER ---------- */}
       <footer className="footer">
-        © 2026 Smart Waste Detection | Built with AI ♻️
+        © 2026 Smart Waste Detection | Built by RG04 | Tanvi Utreja | Ayush | Mehak Sharma | Mahua Vaidya ♻️
       </footer>
 
     </div>
