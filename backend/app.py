@@ -1,7 +1,6 @@
 from fastapi import FastAPI, File, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
-import uvicorn
 import tensorflow as tf
 import numpy as np
 from PIL import Image
@@ -23,8 +22,16 @@ class ChatRequest(BaseModel):
     message: str
 
 
+# ---------------- ENV CHECK ----------------
+IS_RENDER = os.getenv("RENDER") is not None
+
+
 # ---------------- LOCAL AI FUNCTION ----------------
 def ask_local_ai(message):
+
+    # If deployed → disable local AI
+    if IS_RENDER:
+        return "Chatbot not available in deployed version"
 
     prompt = f"""
 You are an AI Waste Management Assistant.
@@ -47,19 +54,20 @@ User question: {message}
                 "model": "llama3",
                 "prompt": prompt,
                 "stream": False
-            }
+            },
+            timeout=30
         )
 
         data = r.json()
-
-        # Safe extraction
         return data.get("response", "AI could not generate a response.")
 
     except Exception as e:
         return f"Local AI error: {str(e)}"
 
+
 # ---------------- MODEL LOADING ----------------
-MODEL_PATH = os.path.join("model", "mobilenetv2_model.h5")
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+MODEL_PATH = os.path.join(BASE_DIR, "model", "mobilenetv2_model.h5")
 
 try:
     model = tf.keras.models.load_model(MODEL_PATH)
@@ -113,16 +121,14 @@ async def predict(file: UploadFile = File(...)):
 async def chat(request: ChatRequest):
 
     try:
-
         reply = ask_local_ai(request.message)
-
         return {"reply": reply}
 
     except Exception as e:
-
         return {"reply": f"AI error: {str(e)}"}
 
 
-# ---------------- RUN SERVER ----------------
+# ---------------- LOCAL RUN ONLY ----------------
 if __name__ == "__main__":
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    import uvicorn
+    uvicorn.run("app:app", host="0.0.0.0", port=8000, reload=True)
