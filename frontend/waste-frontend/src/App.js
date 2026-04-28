@@ -22,7 +22,7 @@ function App() {
   const [chatInput, setChatInput] = useState("");
   const [messages, setMessages] = useState([]);
   const [showDashboard, setShowDashboard] = useState(false);
-
+  const API_URL = process.env.REACT_APP_API_URL;
   const videoRef = useRef(null);
   const canvasRef = useRef(null);
 
