@@ -207,7 +207,11 @@ const wasteInfo = {
 
   return (
     <div className="app-container">
-
+       {errorMsg && (
+  <div style={{ color: "red", textAlign: "center", marginTop: "10px" }}>
+    {errorMsg}
+  </div>
+)}
       {/* ---------- NAVBAR ---------- */}
       <div className="navbar">
         <div className="nav-left">♻️ Smart Waste</div>
@@ -307,6 +311,11 @@ const wasteInfo = {
     <h3>♻️ Recycling Info</h3>
     <p>{wasteInfo[prediction].recycle}</p>
 
+  </div>
+)}
+{errorMsg && (
+  <div style={{ color: "red", textAlign: "center", marginTop: "10px" }}>
+    {errorMsg}
   </div>
 )}
 
