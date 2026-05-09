@@ -1,6 +1,6 @@
 # ♻️ Smart Waste Detection and Segregation Platform
 
-An AI-powered web application that automatically classifies waste into categories (plastic, paper, glass, organic, etc.) using deep learning. This platform helps users identify waste types and provides proper disposal and recycling instructions to promote sustainable waste management.
+An AI-powered web application that automatically classifies waste into categories using Deep Learning and Computer Vision. The platform supports image upload, real-time camera detection, dashboard analytics, and AI-powered waste guidance to promote sustainable waste management.
 
 ![Project Status](https://img.shields.io/badge/Status-Active-success)
 ![Python](https://img.shields.io/badge/Python-3.10-blue)
@@ -10,201 +10,271 @@ An AI-powered web application that automatically classifies waste into categorie
 ---
 
 ## 📋 Table of Contents
+
 - [Problem Statement](#-problem-statement)
 - [Objectives](#-objectives)
 - [System Architecture](#-system-architecture)
 - [Technologies Used](#-technologies-used)
 - [Features](#-features)
+- [Live Deployment](#-live-deployment)
 - [Installation & Setup](#-installation--setup)
 - [Usage](#-usage)
 - [Project Structure](#-project-structure)
 - [Future Scope](#-future-scope)
+- [Credits & Acknowledgements](#-credits--acknowledgements)
 
 ---
 
 ## 🌍 Problem Statement
 
-Municipal Solid Waste (MSW) is a growing global crisis. Improper segregation leads to:
-- Reduced recycling efficiency
-- Increased landfill overflow
-- Environmental contamination
-- Health hazards for sanitation workers
+Municipal Solid Waste (MSW) is a growing global challenge. Improper waste segregation leads to:
 
-Manual segregation is labor-intensive and error-prone. There is a critical need for an **automated, intelligent solution** to assist in waste sorting at the source.
+- Reduced recycling efficiency
+- Landfill overflow
+- Environmental pollution
+- Health risks for sanitation workers
+
+Manual waste segregation is time-consuming and error-prone. Therefore, there is a need for an intelligent AI-based system that can automate waste classification and provide proper disposal guidance.
 
 ---
 
 ## 🎯 Objectives
 
-1. **AI-Powered Classification**: Detect and classify waste (Battery, Biological, Cardboard, Clothes, Glass, Metal, Paper, Plastic, Shoes, Trash) with high accuracy using MobileNetV2.
-2. **Real-Time Interaction**: Provide a user-friendly web interface for instant image uploads and live camera detection.
-3. **Educational Impact**: Offer immediate disposal and recycling guidance to encourage responsible waste habits.
+1. **AI-Based Waste Classification:**  
+   Detect and classify waste into 10 categories using MobileNetV2.
+
+2. **Real-Time Detection:**  
+   Support both image upload and live camera-based waste detection.
+
+3. **Waste Awareness & Guidance:**  
+   Provide recycling suggestions, disposal methods, and environmental insights.
+
+4. **Analytics & Monitoring:**  
+   Visualize classified waste data through a dashboard connected with Firebase.
+
+5. **Interactive Assistance:**  
+   Integrate an AI chatbot for answering waste disposal and recycling queries.
 
 ---
 
 ## 🏗 System Architecture
 
-The system follows a client-server architecture where the React frontend captures images and sends them to a FastAPI backend for inference.
+The platform follows a client-server architecture where the ReactJS frontend communicates with the FastAPI backend for waste classification, dashboard analytics, and chatbot interaction.
 
 ```mermaid
 graph TD
     User([👤 User])
-    
-    subgraph Frontend [💻 React Frontend]
+
+    subgraph Frontend [💻 ReactJS Frontend]
         UI[User Interface]
-        Cam[Camera Module]
-        Up[Upload Module]
+        Upload[Image Upload]
+        Camera[Real-Time Camera]
+        Dashboard[Dashboard]
+        Chatbot[AI Chatbot UI]
     end
-    
+
     subgraph Backend [⚙️ FastAPI Backend]
-        API[API Gateway /predict]
+        API[API Endpoints]
         Pre[Image Preprocessing]
-        Model[🧠 MobileNetV2 Model]
+        Model[🧠 MobileNetV2]
+        ChatAPI[Ollama LLaMA-3]
     end
-    
-    User -->|Opens App| UI
-    User -->|Uploads Image| Up
-    User -->|Captures Video| Cam
-    
-    Up -->|POST Image| API
-    Cam -->|POST Frame| API
-    
+
+    subgraph Database [🔥 Firebase]
+        DB[Waste Classification Data]
+    end
+
+    User --> UI
+    User --> Upload
+    User --> Camera
+    User --> Chatbot
+
+    Upload -->|Image| API
+    Camera -->|Frames| API
+
     API --> Pre
-    Pre -->|Tensor| Model
-    Model -->|Class & Confidence| API
-    
-    API -->|JSON Response| UI
-    UI -->|Display Result & Tips| User
+    Pre --> Model
+    Model -->|Prediction| API
+
+    API -->|Store Results| DB
+    DB --> Dashboard
+
+    Chatbot -->|User Query| ChatAPI
+    ChatAPI -->|AI Response| Chatbot
+
+    API -->|Prediction + Tips| UI
 ```
 
 ---
 
 ## 🛠 Technologies Used
 
-| Component | Technology | Version | Purpose |
-|-----------|------------|---------|---------|
-| **Backend** | Python | 3.10.11 | Core language |
-| | FastAPI | 0.124.0 | High-performance API framework |
-| | Uvicorn | 0.38.0 | ASGI Server |
-| | TensorFlow | 2.12.0 | Deep Learning framework |
-| | Pillow | 12.0.0 | Image processing |
-| **Frontend** | React.js | 19.2.0 | UI Library |
-| | Axios | 1.13.2 | HTTP Client |
-| | React Webcam | 7.2.0 | Camera integration |
-| **DevOps** | Git | - | Version Control |
-| | Windows Batch | - | Automation Scripts |
+| Component | Technology | Purpose |
+|-----------|------------|---------|
+| **Backend** | Python, FastAPI, Uvicorn | API Development & Model Integration |
+| **Frontend** | ReactJS, Axios, React-Webcam | User Interface & Camera Integration |
+| **AI/ML** | TensorFlow, Keras, MobileNetV2 | Waste Classification |
+| **Database** | Firebase | Store Classified Waste Data |
+| **Chatbot** | Ollama + LLaMA-3 | Waste Guidance Assistant |
+| **Deployment** | Render, Vercel | Cloud Hosting |
+| **Version Control** | Git & GitHub | Collaboration & Repository Management |
 
 ---
 
 ## ✨ Features
 
-📸 Image Upload: Upload existing images from your device for classification.
+📸 **Image Upload:** Upload waste images from your device for instant classification.
 
-🎥 Live Camera Detection: Real-time waste detection using your device's webcam.
+🎥 **Live Camera Detection:** Detect waste in real time using webcam integration.
 
-⚡ Fast Inference: Powered by MobileNetV2 for quick and efficient predictions.
+⚡ **Fast AI Inference:** MobileNetV2 provides lightweight and efficient predictions.
 
-♻️ Smart Guidance: Displays carbon footprint, disposal methods, and recycling tips for each detected class.
+♻️ **Smart Waste Guidance:** Displays recycling suggestions, disposal methods, and environmental impact information.
 
-🤖 AI Chatbot Assistant: Ask questions about waste disposal, recycling, and sustainability with an AI-powered assistant.
+📊 **Dashboard Analytics:** Visualizes classified waste data and category distribution using Firebase.
 
-📱 Responsive Design: Works smoothly on both desktop and mobile devices.
+🤖 **AI Chatbot Assistant:** Integrated Ollama + LLaMA-3 chatbot for waste disposal and recycling queries.
+
+☁️ **Cloud Deployment:** Frontend deployed on Vercel and backend deployed on Render.
+
+📱 **Responsive UI:** Smooth experience across desktop and mobile devices.
+
+---
+
+## 🌐 Live Deployment
+
+- **Frontend (Vercel):** https://your-vercel-link.vercel.app  
+- **Backend (Render):** https://your-render-backend.onrender.com  
 
 ---
 
 ## 🚀 Installation & Setup
 
 ### Prerequisites
-- **Python 3.10** (Recommended for TensorFlow 2.12 compatibility)
-- **Node.js** (v18 or higher)
 
-### One-Click Start (Windows)
-We have provided a batch script to automate the setup and startup process.
-1. Navigate to the project root.
-2. Double-click **`start-dev.bat`**.
-   - This will create a virtual environment, install dependencies, and start both Backend and Frontend servers.
+- Python 3.10
+- Node.js (v18 or higher)
+- Firebase Configuration
+- Ollama Installed Locally
 
-### Manual Setup
+---
 
-#### 1. Backend Setup
+### Backend Setup
+
 ```bash
 cd backend
+
 # Create virtual environment
 py -3.10 -m venv .venv
-# Activate environment (Windows)
-.\.venv\Scripts\Activate
+
+# Activate virtual environment
+.\.venv\Scripts\activate
+
 # Install dependencies
 pip install -r requirements.txt
-# Start Server
-python -m uvicorn app:app --host 0.0.0.0 --port 8000 --reload
+
+# Start FastAPI server
+uvicorn app:app --reload
 ```
 
-#### 2. Frontend Setup
+Backend runs on:
+
+```bash
+http://localhost:8000
+```
+
+---
+
+### Frontend Setup
+
 ```bash
 cd frontend/waste-frontend
+
 # Install dependencies
 npm install
-# Start React App
-set REACT_APP_API_URL=http://localhost:8000 && npm start
+
+# Start React frontend
+npm start
 ```
 
-For more detailed instructions, see commands_to_run.txt.
+Frontend runs on:
+
+```bash
+http://localhost:3000
+```
+
+---
+
+### Ollama Setup (Chatbot)
+
+Install Ollama and run the LLaMA-3 model locally:
+
+```bash
+ollama run llama3
+```
 
 ---
 
 ## 📖 Usage
 
-1. **Start the Application**: Ensure both backend (port 8000) and frontend (port 3000) are running.
-2. **Open Browser**: Go to `http://localhost:3000`.
-3. **Select Mode**:
-   - **Upload Mode**: Click "Upload Mode", select an image, and click "Detect Waste".
-   - **Camera Mode**: Click "Camera Mode", allow permissions, and point your camera at the waste item.
-4. **View Results**: The system will display the waste type, confidence score, and disposal instructions.
+1. Start backend and frontend servers.
+2. Open the application in your browser.
+3. Upload an image or use real-time camera mode.
+4. View:
+   - Waste category
+   - Confidence score
+   - Recycling and disposal suggestions
+5. Open dashboard for analytics visualization.
+6. Use AI chatbot for waste-related queries.
 
 ---
 
 ## 📂 Project Structure
 
-```
+```bash
 Smart-Waste-Detection-and-Segregation-Platform/
-├── backend/                 # FastAPI Server
-│   ├── model/               # Trained AI Models (.h5)
-│   ├── app.py               # Main Application Entry
-│   └── requirements.txt     # Python Dependencies
-├── frontend/                # React Application
+│
+├── backend/
+│   ├── model/
+│   ├── app.py
+│   ├── chatbot.py
+│   └── requirements.txt
+│
+├── frontend/
 │   └── waste-frontend/
-│       ├── src/             # Source Code (App.js, CSS)
-│       ├── public/          # Static Assets
-│       └── package.json     # Node Dependencies
-├── model_training/          # Training Scripts & Notebooks
-├── start-dev.bat            # One-click startup script
-├── start.md                 # Detailed startup guide
-└── README.md                # Project Documentation
+│       ├── src/
+│       │   ├── components/
+│       │   ├── pages/
+│       │   └── App.js
+│       └── package.json
+│
+├── model_training/
+├── firebase/
+├── README.md
+└── .gitignore
 ```
 
 ---
 
 ## 🔮 Future Scope
 
-- **Dataset Expansion**: Incorporate more diverse waste images to improve accuracy.
-- **Mobile App**: Develop a native mobile application (React Native/Flutter).
-- **Geospatial Integration**: Map nearby recycling centers based on user location.
-- **User Accounts**: Track personal recycling history and gamify the experience.
+- Add more waste categories and larger datasets.
+- Optimize the model using TensorFlow Lite.
+- Integrate IoT-enabled smart waste bins.
+- Improve dashboard analytics and visualization.
+- Add multilingual and voice-enabled chatbot support.
 
 ---
 
 ## 🤝 Credits & Acknowledgements
 
-- **Dataset**: Garbage Dataset
-- **Supervisor**: Dr. Amit Kumar
-- **Team**:
-Group No.: 4
+- **Dataset:** Garbage Dataset  
+- **Supervisor:** Dr. Amit Kumar  
 
-Team Members
-Tanvi Utreja(221030037) 
-Ayush Rawat (221030205)
-Mehak Sharma (221030157)
-Mahua Vaidya (221030396)
+### Team Members
 
+- Tanvi Utreja (221030037)  
+- Mehak Sharma (221030157)  
+- Mahua Vaidya (221030396)
 
 ---
