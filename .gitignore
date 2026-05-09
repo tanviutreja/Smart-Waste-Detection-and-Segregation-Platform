@@ -5,3 +5,4 @@ __pycache__/
 .venv
 start-dev.bat
 start.md
+*.mp4
