@@ -1,0 +1,69 @@
+Date : 2026-05-09 13:47:19
+Directory : c:\Users\utrej\OneDrive\Desktop\sem7\swdasp\Smart-Waste-Detection-and-Segregation-Platform
+Total : 29 files,  34728 codes, 190 comments, 358 blanks, all 35276 lines
+
+Languages
++------------------+------------+------------+------------+------------+------------+
+| language         | files      | code       | comment    | blank      | total      |
++------------------+------------+------------+------------+------------+------------+
+| JSON             |          5 |     33,251 |          0 |          5 |     33,256 |
+| JavaScript       |          9 |        581 |         22 |        120 |        723 |
+| PostCSS          |          3 |        472 |         50 |         87 |        609 |
+| Python           |          6 |        200 |        107 |         53 |        360 |
+| Markdown         |          2 |        193 |          0 |         89 |        282 |
+| HTML             |          1 |         23 |         11 |          3 |         37 |
+| pip requirements |          1 |          7 |          0 |          0 |          7 |
+| XML              |          1 |          1 |          0 |          0 |          1 |
+| YAML             |          1 |          0 |          0 |          1 |          1 |
++------------------+------------+------------+------------+------------+------------+
+
+Directories
++---------------------------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                                                                        | files      | code       | comment    | blank      | total      |
++---------------------------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                                                                           |         29 |     34,728 |        190 |        358 |     35,276 |
+| . (Files)                                                                                                                                   |          4 |      1,345 |          6 |         67 |      1,418 |
+| backend                                                                                                                                     |          2 |         38 |         91 |         12 |        141 |
+| frontend                                                                                                                                    |         18 |     33,206 |         83 |        246 |     33,535 |
+| frontend\waste-frontend                                                                                                                     |         18 |     33,206 |         83 |        246 |     33,535 |
+| frontend\waste-frontend (Files)                                                                                                             |          4 |     32,170 |          4 |         55 |     32,229 |
+| frontend\waste-frontend\public                                                                                                              |          2 |         48 |         11 |          4 |         63 |
+| frontend\waste-frontend\src                                                                                                                 |         12 |        988 |         68 |        187 |      1,243 |
+| model_training                                                                                                                              |          5 |        139 |         10 |         33 |        182 |
++---------------------------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++---------------------------------------------------------------------------------------------------------------------------------------------+------------------+------------+------------+------------+------------+
+| filename                                                                                                                                    | language         | code       | comment    | blank      | total      |
++---------------------------------------------------------------------------------------------------------------------------------------------+------------------+------------+------------+------------+------------+
+| c:\Users\utrej\OneDrive\Desktop\sem7\swdasp\Smart-Waste-Detection-and-Segregation-Platform\README.md                                        | Markdown         |        155 |          0 |         56 |        211 |
+| c:\Users\utrej\OneDrive\Desktop\sem7\swdasp\Smart-Waste-Detection-and-Segregation-Platform\backend\app.py                                   | Python           |         31 |         91 |         12 |        134 |
+| c:\Users\utrej\OneDrive\Desktop\sem7\swdasp\Smart-Waste-Detection-and-Segregation-Platform\backend\requirements.txt                         | pip requirements |          7 |          0 |          0 |          7 |
+| c:\Users\utrej\OneDrive\Desktop\sem7\swdasp\Smart-Waste-Detection-and-Segregation-Platform\evaluate_saved_model.py                          | Python           |         30 |          6 |          9 |         45 |
+| c:\Users\utrej\OneDrive\Desktop\sem7\swdasp\Smart-Waste-Detection-and-Segregation-Platform\frontend\waste-frontend\CameraClassifier.js      | JavaScript       |         66 |          4 |         20 |         90 |
+| c:\Users\utrej\OneDrive\Desktop\sem7\swdasp\Smart-Waste-Detection-and-Segregation-Platform\frontend\waste-frontend\README.md                | Markdown         |         38 |          0 |         33 |         71 |
+| c:\Users\utrej\OneDrive\Desktop\sem7\swdasp\Smart-Waste-Detection-and-Segregation-Platform\frontend\waste-frontend\package-lock.json        | JSON             |     32,020 |          0 |          1 |     32,021 |
+| c:\Users\utrej\OneDrive\Desktop\sem7\swdasp\Smart-Waste-Detection-and-Segregation-Platform\frontend\waste-frontend\package.json             | JSON             |         46 |          0 |          1 |         47 |
+| c:\Users\utrej\OneDrive\Desktop\sem7\swdasp\Smart-Waste-Detection-and-Segregation-Platform\frontend\waste-frontend\public\index.html        | HTML             |         23 |         11 |          3 |         37 |
+| c:\Users\utrej\OneDrive\Desktop\sem7\swdasp\Smart-Waste-Detection-and-Segregation-Platform\frontend\waste-frontend\public\manifest.json     | JSON             |         25 |          0 |          1 |         26 |
+| c:\Users\utrej\OneDrive\Desktop\sem7\swdasp\Smart-Waste-Detection-and-Segregation-Platform\frontend\waste-frontend\src\App.css              | PostCSS          |        290 |         22 |         48 |        360 |
+| c:\Users\utrej\OneDrive\Desktop\sem7\swdasp\Smart-Waste-Detection-and-Segregation-Platform\frontend\waste-frontend\src\App.js               | JavaScript       |        317 |          6 |         61 |        384 |
+| c:\Users\utrej\OneDrive\Desktop\sem7\swdasp\Smart-Waste-Detection-and-Segregation-Platform\frontend\waste-frontend\src\App.test.js          | JavaScript       |          7 |          0 |          2 |          9 |
+| c:\Users\utrej\OneDrive\Desktop\sem7\swdasp\Smart-Waste-Detection-and-Segregation-Platform\frontend\waste-frontend\src\Dashboard.js         | JavaScript       |        111 |          2 |         15 |        128 |
+| c:\Users\utrej\OneDrive\Desktop\sem7\swdasp\Smart-Waste-Detection-and-Segregation-Platform\frontend\waste-frontend\src\Upload.js            | JavaScript       |         42 |          1 |         14 |         57 |
+| c:\Users\utrej\OneDrive\Desktop\sem7\swdasp\Smart-Waste-Detection-and-Segregation-Platform\frontend\waste-frontend\src\cameraClassifier.css | PostCSS          |        109 |         12 |         20 |        141 |
+| c:\Users\utrej\OneDrive\Desktop\sem7\swdasp\Smart-Waste-Detection-and-Segregation-Platform\frontend\waste-frontend\src\firebase.js          | JavaScript       |         13 |          2 |          2 |         17 |
+| c:\Users\utrej\OneDrive\Desktop\sem7\swdasp\Smart-Waste-Detection-and-Segregation-Platform\frontend\waste-frontend\src\index.css            | PostCSS          |         73 |         16 |         19 |        108 |
+| c:\Users\utrej\OneDrive\Desktop\sem7\swdasp\Smart-Waste-Detection-and-Segregation-Platform\frontend\waste-frontend\src\index.js             | JavaScript       |         12 |          3 |          3 |         18 |
+| c:\Users\utrej\OneDrive\Desktop\sem7\swdasp\Smart-Waste-Detection-and-Segregation-Platform\frontend\waste-frontend\src\logo.svg             | XML              |          1 |          0 |          0 |          1 |
+| c:\Users\utrej\OneDrive\Desktop\sem7\swdasp\Smart-Waste-Detection-and-Segregation-Platform\frontend\waste-frontend\src\reportWebVitals.js   | JavaScript       |         12 |          0 |          2 |         14 |
+| c:\Users\utrej\OneDrive\Desktop\sem7\swdasp\Smart-Waste-Detection-and-Segregation-Platform\frontend\waste-frontend\src\setupTests.js        | JavaScript       |          1 |          4 |          1 |          6 |
+| c:\Users\utrej\OneDrive\Desktop\sem7\swdasp\Smart-Waste-Detection-and-Segregation-Platform\model_training\environment.yml                   | YAML             |          0 |          0 |          1 |          1 |
+| c:\Users\utrej\OneDrive\Desktop\sem7\swdasp\Smart-Waste-Detection-and-Segregation-Platform\model_training\plot_training_curves.py           | Python           |         26 |          3 |          5 |         34 |
+| c:\Users\utrej\OneDrive\Desktop\sem7\swdasp\Smart-Waste-Detection-and-Segregation-Platform\model_training\train_mobilenetv2.py              | Python           |         56 |          1 |         12 |         69 |
+| c:\Users\utrej\OneDrive\Desktop\sem7\swdasp\Smart-Waste-Detection-and-Segregation-Platform\model_training\train_mobilenetv3.py              | Python           |         57 |          6 |         14 |         77 |
+| c:\Users\utrej\OneDrive\Desktop\sem7\swdasp\Smart-Waste-Detection-and-Segregation-Platform\model_training\utils.py                          | Python           |          0 |          0 |          1 |          1 |
+| c:\Users\utrej\OneDrive\Desktop\sem7\swdasp\Smart-Waste-Detection-and-Segregation-Platform\package-lock.json                                | JSON             |      1,151 |          0 |          1 |      1,152 |
+| c:\Users\utrej\OneDrive\Desktop\sem7\swdasp\Smart-Waste-Detection-and-Segregation-Platform\package.json                                     | JSON             |          9 |          0 |          1 |         10 |
+| Total                                                                                                                                       |                  |     34,728 |        190 |        358 |     35,276 |
++---------------------------------------------------------------------------------------------------------------------------------------------+------------------+------------+------------+------------+------------+

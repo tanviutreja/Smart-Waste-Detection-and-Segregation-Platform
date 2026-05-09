@@ -1,0 +1,31 @@
+"filename", "language", "JSON", "Python", "Markdown", "YAML", "JavaScript", "pip requirements", "XML", "PostCSS", "HTML", "comment", "blank", "total"
+"c:\Users\utrej\OneDrive\Desktop\sem7\swdasp\Smart-Waste-Detection-and-Segregation-Platform\README.md", "Markdown", 0, 0, 155, 0, 0, 0, 0, 0, 0, 0, 56, 211
+"c:\Users\utrej\OneDrive\Desktop\sem7\swdasp\Smart-Waste-Detection-and-Segregation-Platform\backend\app.py", "Python", 0, 31, 0, 0, 0, 0, 0, 0, 0, 91, 12, 134
+"c:\Users\utrej\OneDrive\Desktop\sem7\swdasp\Smart-Waste-Detection-and-Segregation-Platform\backend\requirements.txt", "pip requirements", 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 7
+"c:\Users\utrej\OneDrive\Desktop\sem7\swdasp\Smart-Waste-Detection-and-Segregation-Platform\evaluate_saved_model.py", "Python", 0, 30, 0, 0, 0, 0, 0, 0, 0, 6, 9, 45
+"c:\Users\utrej\OneDrive\Desktop\sem7\swdasp\Smart-Waste-Detection-and-Segregation-Platform\frontend\waste-frontend\CameraClassifier.js", "JavaScript", 0, 0, 0, 0, 66, 0, 0, 0, 0, 4, 20, 90
+"c:\Users\utrej\OneDrive\Desktop\sem7\swdasp\Smart-Waste-Detection-and-Segregation-Platform\frontend\waste-frontend\README.md", "Markdown", 0, 0, 38, 0, 0, 0, 0, 0, 0, 0, 33, 71
+"c:\Users\utrej\OneDrive\Desktop\sem7\swdasp\Smart-Waste-Detection-and-Segregation-Platform\frontend\waste-frontend\package-lock.json", "JSON", 32020, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 32021
+"c:\Users\utrej\OneDrive\Desktop\sem7\swdasp\Smart-Waste-Detection-and-Segregation-Platform\frontend\waste-frontend\package.json", "JSON", 46, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 47
+"c:\Users\utrej\OneDrive\Desktop\sem7\swdasp\Smart-Waste-Detection-and-Segregation-Platform\frontend\waste-frontend\public\index.html", "HTML", 0, 0, 0, 0, 0, 0, 0, 0, 23, 11, 3, 37
+"c:\Users\utrej\OneDrive\Desktop\sem7\swdasp\Smart-Waste-Detection-and-Segregation-Platform\frontend\waste-frontend\public\manifest.json", "JSON", 25, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 26
+"c:\Users\utrej\OneDrive\Desktop\sem7\swdasp\Smart-Waste-Detection-and-Segregation-Platform\frontend\waste-frontend\src\App.css", "PostCSS", 0, 0, 0, 0, 0, 0, 0, 290, 0, 22, 48, 360
+"c:\Users\utrej\OneDrive\Desktop\sem7\swdasp\Smart-Waste-Detection-and-Segregation-Platform\frontend\waste-frontend\src\App.js", "JavaScript", 0, 0, 0, 0, 317, 0, 0, 0, 0, 6, 61, 384
+"c:\Users\utrej\OneDrive\Desktop\sem7\swdasp\Smart-Waste-Detection-and-Segregation-Platform\frontend\waste-frontend\src\App.test.js", "JavaScript", 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 2, 9
+"c:\Users\utrej\OneDrive\Desktop\sem7\swdasp\Smart-Waste-Detection-and-Segregation-Platform\frontend\waste-frontend\src\Dashboard.js", "JavaScript", 0, 0, 0, 0, 111, 0, 0, 0, 0, 2, 15, 128
+"c:\Users\utrej\OneDrive\Desktop\sem7\swdasp\Smart-Waste-Detection-and-Segregation-Platform\frontend\waste-frontend\src\Upload.js", "JavaScript", 0, 0, 0, 0, 42, 0, 0, 0, 0, 1, 14, 57
+"c:\Users\utrej\OneDrive\Desktop\sem7\swdasp\Smart-Waste-Detection-and-Segregation-Platform\frontend\waste-frontend\src\cameraClassifier.css", "PostCSS", 0, 0, 0, 0, 0, 0, 0, 109, 0, 12, 20, 141
+"c:\Users\utrej\OneDrive\Desktop\sem7\swdasp\Smart-Waste-Detection-and-Segregation-Platform\frontend\waste-frontend\src\firebase.js", "JavaScript", 0, 0, 0, 0, 13, 0, 0, 0, 0, 2, 2, 17
+"c:\Users\utrej\OneDrive\Desktop\sem7\swdasp\Smart-Waste-Detection-and-Segregation-Platform\frontend\waste-frontend\src\index.css", "PostCSS", 0, 0, 0, 0, 0, 0, 0, 73, 0, 16, 19, 108
+"c:\Users\utrej\OneDrive\Desktop\sem7\swdasp\Smart-Waste-Detection-and-Segregation-Platform\frontend\waste-frontend\src\index.js", "JavaScript", 0, 0, 0, 0, 12, 0, 0, 0, 0, 3, 3, 18
+"c:\Users\utrej\OneDrive\Desktop\sem7\swdasp\Smart-Waste-Detection-and-Segregation-Platform\frontend\waste-frontend\src\logo.svg", "XML", 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1
+"c:\Users\utrej\OneDrive\Desktop\sem7\swdasp\Smart-Waste-Detection-and-Segregation-Platform\frontend\waste-frontend\src\reportWebVitals.js", "JavaScript", 0, 0, 0, 0, 12, 0, 0, 0, 0, 0, 2, 14
+"c:\Users\utrej\OneDrive\Desktop\sem7\swdasp\Smart-Waste-Detection-and-Segregation-Platform\frontend\waste-frontend\src\setupTests.js", "JavaScript", 0, 0, 0, 0, 1, 0, 0, 0, 0, 4, 1, 6
+"c:\Users\utrej\OneDrive\Desktop\sem7\swdasp\Smart-Waste-Detection-and-Segregation-Platform\model_training\environment.yml", "YAML", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1
+"c:\Users\utrej\OneDrive\Desktop\sem7\swdasp\Smart-Waste-Detection-and-Segregation-Platform\model_training\plot_training_curves.py", "Python", 0, 26, 0, 0, 0, 0, 0, 0, 0, 3, 5, 34
+"c:\Users\utrej\OneDrive\Desktop\sem7\swdasp\Smart-Waste-Detection-and-Segregation-Platform\model_training\train_mobilenetv2.py", "Python", 0, 56, 0, 0, 0, 0, 0, 0, 0, 1, 12, 69
+"c:\Users\utrej\OneDrive\Desktop\sem7\swdasp\Smart-Waste-Detection-and-Segregation-Platform\model_training\train_mobilenetv3.py", "Python", 0, 57, 0, 0, 0, 0, 0, 0, 0, 6, 14, 77
+"c:\Users\utrej\OneDrive\Desktop\sem7\swdasp\Smart-Waste-Detection-and-Segregation-Platform\model_training\utils.py", "Python", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1
+"c:\Users\utrej\OneDrive\Desktop\sem7\swdasp\Smart-Waste-Detection-and-Segregation-Platform\package-lock.json", "JSON", 1151, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1152
+"c:\Users\utrej\OneDrive\Desktop\sem7\swdasp\Smart-Waste-Detection-and-Segregation-Platform\package.json", "JSON", 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 10
+"Total", "-", 33251, 200, 193, 0, 581, 7, 1, 472, 23, 190, 358, 35276
