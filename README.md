@@ -143,8 +143,8 @@ graph TD
 
 ## 🌐 Live Deployment
 
-- **Frontend (Vercel):** https://your-vercel-link.vercel.app  
-- **Backend (Render):** https://your-render-backend.onrender.com  
+- **Frontend (Vercel):** https://smart-waste-detection-and-segregati.vercel.app/ 
+- **Backend (Render):** https://waste-backend-bj26.onrender.com
 
 ---
 
